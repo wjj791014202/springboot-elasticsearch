@@ -31,15 +31,18 @@ public class ElasticSearchConfig {
 
 
     @Value("${spring.elasticsearch.host}")
-    private String host;//elasticsearch的地址
+    public String host;//elasticsearch的地址
 
     @Value("${spring.elasticsearch.port}")
-    private Integer port;//elasticsearch的端口
+    public Integer port;//elasticsearch的端口
 
     @Value("${elasticsearch.cluster.name}")
     private String clusterName;//集群
 
     private TransportClient transportClient;
+
+    public static ElasticSearchConfig instance;
+
 
     @Bean
     public TransportClient transportClient(){
@@ -100,6 +103,7 @@ public class ElasticSearchConfig {
     @PostConstruct
     void init() {
         System.setProperty("es.set.netty.runtime.available.processors", "false");
+        instance=this;
     }
 
 }

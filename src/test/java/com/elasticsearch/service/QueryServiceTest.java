@@ -44,7 +44,7 @@ public class QueryServiceTest {
      * 创建index 输入数据
      *
      * */
-    @Before
+//    @Before
     public void setUp(){
         Random random = new Random();
         for(int i = 0 ; i < 1200; i++){
@@ -79,7 +79,7 @@ public class QueryServiceTest {
     public void testInsertById(){
         Es es = new Es("search_index","search_index");
         List<Map<String, Object>> list = queryService
-                .queryListFromES(es, 13,"旗舰店"+13, "2018-12-01", "2018-12-31");
+                .queryListFromES(es, 13,"旗舰店"+13, "2020-12-01", "2020-12-31");
         System.out.println(JSON.toJSONString(list));
     }
 
